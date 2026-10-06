@@ -11,5 +11,16 @@ Animated GIF graphics for project pages and descriptions.
 - `modrinth-button.gif` - Modrinth button
 - `curseforge-button.gif` - CurseForge button
 - `source-button.gif` - source code button
+- `twitch-button.gif` - Twitch button
+- `youtube-button.gif` - YouTube button
+- `items/emerald-crystal.png` - transparent pixel-art crystal
+- `items/redstone-gear.png` - transparent pixel-art gear
+- `items/open-book.png` - transparent pixel-art book
+- `items/gold-ingot.png` - transparent pixel-art ingot
 
-The graphics use text and gradients without bundled game textures or copied logos.
+The section banners use custom transparent pixel art and animated highlights. The artwork is original and does not include copied Minecraft textures or platform logos.
+
+Social links:
+
+- Twitch: https://www.twitch.tv/faspadio_if_tve
+- YouTube: https://www.youtube.com/@hoziain_murki

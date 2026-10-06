@@ -39,6 +39,13 @@ Builds are checked for all supported versions. Runtime audio testing has been co
 
 Use `build-all.bat` on Windows or `build-all.sh` on Linux and macOS to build all supported Minecraft versions. The resulting addon JARs are placed in `dist`.
 
+## Banner assets
+
+Animated project banners, section headers, transparent pixel-art items, and social buttons are available in [`banners/`](./banners/). The Twitch and YouTube buttons link to the project author's channels.
+
+[![Twitch](./banners/twitch-button.gif)](https://www.twitch.tv/faspadio_if_tve)
+[![YouTube](./banners/youtube-button.gif)](https://www.youtube.com/@hoziain_murki)
+
 ## Limitations
 
 The addon implements the Simple Voice Chat client protocol directly. Compatibility depends on the protocol version used by the server. Client-side addons that require the Simple Voice Chat client mod are not supported.
