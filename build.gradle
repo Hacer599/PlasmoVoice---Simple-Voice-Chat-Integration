@@ -1,0 +1,162 @@
+plugins {
+    id 'fabric-loom' version '1.16.3'
+}
+
+def targetMinecraft = (project.findProperty('mc') ?: project.minecraft_version).toString()
+def profileFile = file("versions/${targetMinecraft}.properties")
+
+if (!profileFile.exists()) {
+    throw new GradleException("No build profile for Minecraft ${targetMinecraft}, expected ${profileFile}")
+}
+
+def profile = new Properties()
+profileFile.withInputStream { profile.load(it) }
+
+def yarnMappings = profile.getProperty('yarn_mappings')
+def loaderVersion = profile.getProperty('loader_version')
+def fabricVersion = profile.getProperty('fabric_version')
+def javaTarget = Integer.parseInt(profile.getProperty('java_version'))
+
+version = "${project.mod_version}+mc${targetMinecraft}"
+group = project.maven_group
+def modVersion = project.version.toString()
+def archiveBaseName = project.archives_base_name.toString()
+
+base {
+    archivesName = project.archives_base_name
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${targetMinecraft}"
+    mappings "net.fabricmc:yarn:${yarnMappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${loaderVersion}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabricVersion}"
+    modCompileOnly "su.plo.voice.api:client:2.1.17"
+    modCompileOnly "org.jetbrains.kotlin:kotlin-stdlib:2.3.0"
+    if (targetMinecraft in ["1.17.1", "1.18.2", "1.19", "1.19.1", "1.19.2", "1.19.3", "1.19.4", "1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4", "1.20.5", "1.20.6", "1.21", "1.21.1", "1.21.2", "1.21.3", "1.21.4", "1.21.5", "1.21.6", "1.21.7", "1.21.8", "1.21.9", "1.21.10", "1.21.11"]) {
+        include(implementation("org.concentus:Concentus:1.0.1"))
+    }
+}
+
+sourceSets.main.java.srcDir("src/minecraft/${targetMinecraft}/java")
+if (targetMinecraft in ["1.17.1", "1.18.2"]) {
+    sourceSets.main.java.srcDir("src/minecraft/pre1.19/java")
+    def mainJavaRoot = file("src/main/java").toPath()
+    def legacyOverrides = [
+            "dev/faspadio/pvsvcbridge/client/command/BridgeCommands.java",
+            "dev/faspadio/pvsvcbridge/common/text/BridgeTexts.java"
+    ] as Set
+    sourceSets.main.java.exclude { element ->
+        element.file.toPath().startsWith(mainJavaRoot) && element.path in legacyOverrides
+    }
+} else if (targetMinecraft == "1.19.2") {
+} else if (targetMinecraft in ["1.19.3", "1.19.4"]) {
+    sourceSets.main.java.srcDir("src/minecraft/pre1.20/java")
+} else if (targetMinecraft in ["1.19", "1.19.1"]) {
+    sourceSets.main.java.srcDir("src/minecraft/1.19.2/java")
+} else {
+    if (targetMinecraft != "1.20") {
+        sourceSets.main.java.srcDir("src/minecraft/1.20/java")
+    }
+}
+if (targetMinecraft in ["1.17.1", "1.18.2", "1.19", "1.19.1", "1.19.2", "1.19.3", "1.19.4", "1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4"]) {
+    sourceSets.main.java.srcDir("src/minecraft/1.21.modern/java")
+    sourceSets.main.java.srcDir("src/minecraft/1.21.11/java")
+    sourceSets.main.java.srcDir("src/minecraft/pre1.20.5/java")
+    if (targetMinecraft in ["1.17.1", "1.18.2"]) {
+        sourceSets.main.java.srcDir("src/minecraft/pre1.19-hud/java")
+    } else if (targetMinecraft.startsWith("1.19")) {
+        sourceSets.main.java.srcDir("src/minecraft/1.19-hud/java")
+    } else {
+        sourceSets.main.java.srcDir("src/minecraft/1.21.5-hud/java")
+    }
+    def modernBridgeRoot = file("src/minecraft/1.21.11/java").toPath()
+    def mainJavaRoot = file("src/main/java").toPath()
+    sourceSets.main.java.exclude { element ->
+        (element.file.toPath().startsWith(modernBridgeRoot)
+                && element.name in ["SimpleVoiceChatPayloads.java", "SimpleVoiceChatNetworking.java", "BridgeCamera.java"])
+                || (element.file.toPath().startsWith(mainJavaRoot)
+                && element.name == "BridgeIdentifiers.java")
+    }
+}
+if (targetMinecraft in ["1.20.5", "1.20.6", "1.21", "1.21.1", "1.21.2", "1.21.3", "1.21.4", "1.21.5"]) {
+    sourceSets.main.java.srcDir("src/minecraft/1.21.modern/java")
+    sourceSets.main.java.srcDir("src/minecraft/1.21.11/java")
+    sourceSets.main.java.srcDir("src/minecraft/pre1.21.6-camera/java")
+    if (targetMinecraft in ["1.20.5", "1.20.6", "1.21", "1.21.1"]) {
+        sourceSets.main.java.srcDir("src/minecraft/1.21.5-hud/java")
+    } else {
+        sourceSets.main.java.srcDir("src/minecraft/1.21.2-hud/java")
+    }
+    def modernBridgeRoot = file("src/minecraft/1.21.11/java").toPath()
+    sourceSets.main.java.exclude { element ->
+        element.file.toPath().startsWith(modernBridgeRoot) && element.name == "BridgeCamera.java"
+    }
+}
+if (targetMinecraft in ["1.21.6", "1.21.7", "1.21.8", "1.21.9", "1.21.10", "1.21.11"]) {
+    sourceSets.main.java.srcDir("src/minecraft/1.21.modern/java")
+    sourceSets.main.java.srcDir("src/minecraft/1.21.6-hud/java")
+    if (targetMinecraft != "1.21.11") {
+        sourceSets.main.java.srcDir("src/minecraft/1.21.11/java")
+    }
+    if (targetMinecraft in ["1.21.8", "1.21.10"]) {
+        sourceSets.main.java.srcDir("src/minecraft/1.21.9/java")
+    }
+    if (targetMinecraft in ["1.21.6", "1.21.7"]) {
+        sourceSets.main.java.srcDir("src/minecraft/1.21.9/java")
+    }
+}
+
+repositories {
+    maven {
+        url = 'https://maven.maxhenkel.de/repository/public'
+    }
+    maven {
+        url = 'https://repo.plasmoverse.com/releases'
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "minecraft_version", targetMinecraft
+    inputs.property "loader_version", loaderVersion
+    inputs.property "java_version", javaTarget
+    filteringCharset = "UTF-8"
+
+    filesMatching("fabric.mod.json") {
+        expand "version": modVersion,
+                "minecraft_version": targetMinecraft,
+                "loader_version": loaderVersion,
+                "java_version": javaTarget
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    it.options.release.set(javaTarget)
+}
+
+java {
+    def javaVersion = JavaVersion.toVersion(javaTarget)
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(javaTarget)
+    }
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    withSourcesJar()
+}
+
+jar {
+    from("LICENSE.txt") {
+        rename { "${it}_${archiveBaseName}" }
+    }
+}
+
+tasks.register('printTargets') {
+    doLast {
+        fileTree("versions").matching { include "*.properties" }.files
+                .collect { it.name.replace(".properties", "") }
+                .sort()
+                .each { println it }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "dev.faspadio.pvsvcbridge.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "PlasmoVoiceMenuMixin",
+    "PlasmoVoiceDevicesMixin",
+    "PlasmoVoiceMicrophoneTestMixin",
+    "PlasmoVoiceVolumeTabMixin",
+    "SVCPlayerVolumeScrollMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "pv-svc-bridge",
+  "version": "${version}",
+  "name": "Plasmo Voice Simple Voice Chat Bridge",
+  "description": "Plasmo Voice addon with a Simple Voice Chat compatibility bridge.",
+  "contact": {
+    "homepage": "https://faspadio.fasp.workers.dev",
+    "issues": "https://t.me/faspadio"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/pv-svc-bridge/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "dev.faspadio.pvsvcbridge.PvSvcBridge"
+    ],
+    "client": [
+      "dev.faspadio.pvsvcbridge.client.PvSvcBridgeClient"
+    ]
+  },
+  "mixins": [
+    "pv-svc-bridge.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}",
+    "fabric-api": "*"
+  },
+  "recommends": {
+    "plasmovoice": ">=2.1.16"
+  },
+  "suggests": {
+    "voicechat": "*"
+  }
+}
