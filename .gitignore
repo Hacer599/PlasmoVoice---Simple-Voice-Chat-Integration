@@ -13,9 +13,10 @@ run/
 *.iws
 .vscode/
 .settings/
+.classpath
+.project
 settings.json
-*_client.launch
-*_server.launch
+*.launch
 
 .DS_Store
 Thumbs.db
