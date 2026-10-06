@@ -45,8 +45,12 @@ try {
         throw "Local main must match origin/main. Push the latest commit before creating a release."
     }
 
-    & gh release view $tag --repo $repo 2>$null | Out-Null
-    if ($LASTEXITCODE -eq 0) {
+    $releaseList = & gh release list --repo $repo --json tagName --limit 1000
+    if ($LASTEXITCODE -ne 0) {
+        throw "Could not check existing GitHub releases"
+    }
+    $existingReleases = @($releaseList | ConvertFrom-Json)
+    if (@($existingReleases | Where-Object { $_.tagName -eq $tag }).Count -gt 0) {
         throw "Release $tag already exists. Choose a new version."
     }
 
