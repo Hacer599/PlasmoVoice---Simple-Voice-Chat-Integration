@@ -7,15 +7,11 @@ One client addon. No Simple Voice Chat client mod required.
 
 ![Project banner](https://cdn.modrinth.com/data/ssioB7X9/images/cad37a45fdea86938a9713dd0d84a90752cad41c.jpeg)
 
-[![GitHub](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/github-button.gif)](https://github.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration)
-[![Twitch](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/twitch-button.gif)](https://www.twitch.tv/faspadio_if_tve)
-[![YouTube](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/youtube-button.gif)](https://www.youtube.com/@hoziain_murki)
+[GitHub](https://github.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration) · [Twitch](https://www.twitch.tv/faspadio_if_tve) · [YouTube](https://www.youtube.com/@hoziain_murki)
 
 </div>
 
 ---
-
-![Description](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/description.gif)
 
 A **Fabric client addon for [Plasmo Voice](https://modrinth.com/mod/plasmo-voice)** that implements the **Simple Voice Chat (SVC) client protocol**. Join SVC servers and use voice chat through Plasmo Voice without installing the SVC client mod.
 
@@ -42,8 +38,6 @@ Plasmo Voice remains the preferred voice system. The addon detects the server's 
 5. Join a server that uses Simple Voice Chat.
 
 The Simple Voice Chat client mod is not required.
-
-![Configurable](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/configurable.gif)
 
 Open Plasmo Voice settings, select **Add-ons**, and find the **SVC** section. It contains options for backend priority, enabling the bridge, fallback behavior, allowing both backends, chat announcements, debug logging, and bridge output volume.
 
@@ -84,8 +78,6 @@ Plasmo Voice remains the preferred backend.
 
 No. This project is a Fabric client addon.
 
-![Licensing](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/licensing.gif)
-
 The project is provided under the terms stated in [LICENSE.txt](./LICENSE.txt). All rights reserved.
 
 This is an unofficial addon and is not affiliated with or endorsed by the Plasmo Voice or Simple Voice Chat teams.
@@ -97,8 +89,6 @@ This is an unofficial addon and is not affiliated with or endorsed by the Plasmo
 # 🇷🇺 Русская версия
 
 </div>
-
-![Описание](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/description.gif)
 
 **Клиентский Fabric-аддон для [Plasmo Voice](https://modrinth.com/mod/plasmo-voice)**, который напрямую реализует **клиентский протокол Simple Voice Chat (SVC)**. С этим аддоном можно пользоваться голосовым чатом на SVC-серверах через Plasmo Voice, не устанавливая клиентский мод Simple Voice Chat.
 
@@ -123,8 +113,6 @@ Plasmo Voice остаётся предпочтительной голосово�
 5. Зайди на сервер, использующий Simple Voice Chat.
 
 Устанавливать клиентский мод Simple Voice Chat не нужно.
-
-![Настройки](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/configurable.gif)
 
 Открой настройки Plasmo Voice, выбери вкладку **Add-ons** и найди раздел **SVC**. В нём находятся настройки приоритета голосовой системы, включения моста, резервного подключения, одновременной работы обоих бэкендов, сообщений в чат, подробного логирования и общей громкости SVC.
 
@@ -165,8 +153,6 @@ Plasmo Voice остаётся предпочтительной голосово�
 
 Нет. Это клиентский Fabric-аддон.
 
-![Лицензия](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/licensing.gif)
-
 Проект распространяется на условиях, указанных в файле [LICENSE.txt](./LICENSE.txt). Все права защищены.
 
 Неофициальный аддон, не связанный с командами Plasmo Voice или Simple Voice Chat.
@@ -175,8 +161,6 @@ Plasmo Voice остаётся предпочтительной голосово�
 
 <div align="center">
 
-[![GitHub](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/github-button.gif)](https://github.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration)
-[![Twitch](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/twitch-button.gif)](https://www.twitch.tv/faspadio_if_tve)
-[![YouTube](https://raw.githubusercontent.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration/main/banners/youtube-button.gif)](https://www.youtube.com/@hoziain_murki)
+[GitHub](https://github.com/Hacer599/PlasmoVoice---Simple-Voice-Chat-Integration) · [Twitch](https://www.twitch.tv/faspadio_if_tve) · [YouTube](https://www.youtube.com/@hoziain_murki)
 
 </div>
