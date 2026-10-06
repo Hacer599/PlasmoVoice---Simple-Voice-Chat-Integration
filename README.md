@@ -39,8 +39,6 @@ Builds are checked for all supported versions. Runtime audio testing has been co
 
 Use `build-all.bat` on Windows or `build-all.sh` on Linux and macOS to build all supported Minecraft versions. The resulting addon JARs are placed in `dist`.
 
-On Windows, `release.ps1 -Version 1.0.0` builds the source JARs and publishes a GitHub release with the mod JARs, source JARs, and a ZIP of the project source. Commit and push all changes first, and sign in with `gh auth login`.
-
 ## Limitations
 
 The addon implements the Simple Voice Chat client protocol directly. Compatibility depends on the protocol version used by the server. Client-side addons that require the Simple Voice Chat client mod are not supported.
